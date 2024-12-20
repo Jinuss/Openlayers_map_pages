@@ -1,21 +1,51 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8">
+  <link rel="icon" href="./fav.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<head>
-  <meta charset="UTF-8" />
-  <link rel="icon" href="./fav.jpg" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Map-Openlayers</title>
-  <script type="module" crossorigin src="./assets/index-B-KgkINX.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-zQ3T1ABV.css">
+  <script crossorigin="">import('./assets/index-CxghpJ10.js').finally(() => {
+            
+    const qiankunLifeCycle = window.moudleQiankunAppLifeCycles && window.moudleQiankunAppLifeCycles['vue-openlayers-app'];
+    if (qiankunLifeCycle) {
+      window.proxy.vitemount((props) => qiankunLifeCycle.mount(props));
+      window.proxy.viteunmount((props) => qiankunLifeCycle.unmount(props));
+      window.proxy.vitebootstrap(() => qiankunLifeCycle.bootstrap());
+      window.proxy.viteupdate((props) => qiankunLifeCycle.update(props));
+    }
+  
+          })</script>
+  <link rel="stylesheet" crossorigin="" href="./assets/index-D8jxchuG.css">
 </head>
 
 <body>
   <svg aria-hidden="true" id="svgBase" style="position: absolute; width: 0px; height: 0px; overflow: hidden;">
    
   </svg>
-  <div id="app"></div>
-  
-</body>
+  <div id="app"></div>
 
-</html>
+  
+
+
+<script>
+  const createDeffer = (hookName) => {
+    const d = new Promise((resolve, reject) => {
+      window.proxy && (window.proxy[`vite${hookName}`] = resolve)
+    })
+    return props => d.then(fn => fn(props));
+  }
+  const bootstrap = createDeffer('bootstrap');
+  const mount = createDeffer('mount');
+  const unmount = createDeffer('unmount');
+  const update = createDeffer('update');
+
+  ;(global => {
+    global.qiankunName = 'vue-openlayers-app';
+    global['vue-openlayers-app'] = {
+      bootstrap,
+      mount,
+      unmount,
+      update
+    };
+  })(window);
+</script></body></html>
